@@ -10,7 +10,7 @@
   z-index: -1;
   height: 40vh;
   width: 100vw;
-  background-image: url("./Fav_banner.jpg");
+  background-image: url("../../../public/Fav_banner.jpg");
   background-position: top;
   background-size: cover;
 }

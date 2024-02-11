@@ -10,7 +10,7 @@
   z-index: -1;
   height: 40vh;
   width: 100vw;
-  background-image: url("./charactersBanner.png");
+  background-image: url("../../../public/charactersBanner.png");
   background-position: center;
   background-size: cover;
 }
