@@ -12,7 +12,7 @@
   z-index: -1;
   height: calc(100vh - 60px);
   width: 100vw;
-  background-image: url("./Marvel_heroes_banner.webp");
+  background-image: url("../../../public/Marvel_heroes_banner.webp");
   background-position: center;
   background-size: cover;
 }
