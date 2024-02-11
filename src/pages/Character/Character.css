@@ -1,0 +1,47 @@
+/* CHARACTER PAGE */
+
+.characterPage {
+  height: calc(100vh - 60px);
+  display: flex;
+  flex-direction: column;
+}
+
+.characterPage > div:first-of-type {
+  width: 100%;
+}
+
+.characterInfo {
+  display: flex;
+  justify-content: space-between;
+  gap: 50px;
+  padding: 20px 0;
+}
+
+.characterInfo .description p {
+  margin-top: 20px;
+  font-size: 24px;
+  font-weight: 300;
+}
+
+/* BOTTOM SECTION */
+
+.characterPage .bottomBackground {
+  background-color: #202020;
+  height: 100%;
+}
+
+.characterPage .bottomContainer {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  padding: 20px 0;
+}
+
+.characterPage .appearsIn {
+  display: flex;
+  flex-direction: column;
+}
+
+.characterPage .appearsIn h3 {
+  padding-bottom: 20px;
+}

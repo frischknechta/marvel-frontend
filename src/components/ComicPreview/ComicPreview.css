@@ -1,0 +1,50 @@
+/* COMIC PREVIEW */
+
+.comicPreview {
+  position: relative;
+  width: 120px;
+  height: 240px;
+}
+
+.comicPreviewContainer {
+  width: 120px;
+  height: 240px;
+  display: flex;
+  flex-direction: column;
+  background-color: #ed171e;
+  color: white;
+  transition: all 0.5s ease;
+  clip-path: polygon(100px 240px, 120px 220px, 120px 0px, 0px 0px, 0px 240px);
+}
+
+.comicPreviewContainer:hover {
+  background-color: #b71212;
+}
+
+.comicPreviewContainer > div {
+  padding: 10px 5px 5px;
+  font-weight: bold;
+}
+
+/* COMIC PREVIEW ON FAVORITES PAGE */
+
+.favorites .comicPreviewContainer {
+  width: 120px;
+  height: 240px;
+  display: flex;
+  flex-direction: column;
+  background-color: #202020;
+  color: white;
+  transition: all 0.5s ease;
+  clip-path: polygon(100px 240px, 120px 220px, 120px 0px, 0px 0px, 0px 240px);
+}
+
+.favorites .comicPreviewContainer:hover {
+  background-color: #ed171e;
+}
+
+.favorites .comicPreviewContainer > div {
+  border-top: 5px solid #ed171e;
+  padding: 5px;
+  font-weight: bold;
+}

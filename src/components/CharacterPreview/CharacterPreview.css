@@ -1,0 +1,28 @@
+/* character PREVIEW */
+
+.characterPreview {
+  position: relative;
+  width: 120px;
+  height: 240px;
+}
+
+.characterPreviewContainer {
+  width: 120px;
+  height: 240px;
+  display: flex;
+  flex-direction: column;
+  background-color: #202020;
+  color: white;
+  transition: all 0.5s ease;
+  clip-path: polygon(100px 240px, 120px 220px, 120px 0px, 0px 0px, 0px 240px);
+}
+
+.characterPreviewContainer:hover {
+  background-color: #ed171e;
+}
+
+.characterPreviewContainer > div {
+  border-top: 5px solid #ed171e;
+  padding: 5px;
+  font-weight: bold;
+}

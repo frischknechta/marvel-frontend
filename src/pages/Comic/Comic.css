@@ -1,0 +1,15 @@
+/* comic PAGE */
+
+.comicInfo {
+  display: flex;
+  justify-content: space-between;
+  gap: 50px;
+  height: 324px;
+  padding-top: 20px;
+}
+
+.comicInfo .description p {
+  margin-top: 20px;
+  font-size: 24px;
+  font-weight: 300;
+}

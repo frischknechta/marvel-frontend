@@ -1,0 +1,44 @@
+/* CHARACTER CARD */
+
+.characterCard {
+  position: relative;
+}
+
+.characterCardContainer {
+  width: 140px;
+  height: 280px;
+  display: flex;
+  flex-direction: column;
+  background-color: #202020;
+  color: white;
+  transition: all 0.5s ease;
+  clip-path: polygon(120px 280px, 140px 260px, 140px 0px, 0px 0px, 0px 280px);
+}
+
+.characterCardContainer:hover {
+  background-color: #ed171e;
+}
+
+.characterCardContainer > div {
+  border-top: 5px solid #ed171e;
+  padding: 5px;
+  font-weight: bold;
+}
+
+/* BUTTONS */
+
+.characterCardButton {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  background: none;
+  color: white;
+  border: none;
+  font-size: 20px;
+  padding: 0;
+  z-index: 1;
+}
+
+.characterCardButton:hover {
+  transform: scale(120%);
+}

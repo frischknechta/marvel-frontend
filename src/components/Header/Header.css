@@ -1,0 +1,38 @@
+/* HEADER */
+
+header {
+  height: 60px;
+  background-color: #202020;
+}
+
+header img {
+  height: 60px;
+  cursor: pointer;
+}
+
+header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+header .buttons {
+  display: flex;
+  gap: 20px;
+  height: 100%;
+}
+
+header button {
+  color: white;
+  background: none;
+  height: 100%;
+  border: none;
+  border-left: 1px solid #404040;
+  border-right: 1px solid #404040;
+  padding: 0 15px;
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+}

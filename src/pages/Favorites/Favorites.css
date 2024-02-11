@@ -1,0 +1,40 @@
+/* FAVORITES PAGE */
+
+.favoritesPage {
+  position: relative;
+}
+
+.bannerFavorites {
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  height: 40vh;
+  width: 100vw;
+  background-image: url("./Fav_banner.jpg");
+  background-position: top;
+  background-size: cover;
+}
+
+.favoritesPage .title {
+  height: 40vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  text-shadow: 1px 1px 3px #ed171e;
+}
+
+.favorites {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px 0;
+}
+
+.comics,
+.characters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}

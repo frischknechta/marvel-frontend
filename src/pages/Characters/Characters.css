@@ -1,0 +1,96 @@
+/* CHARACTERS PAGE */
+
+.charactersPage {
+  position: relative;
+}
+
+.bannerCharacters {
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  height: 40vh;
+  width: 100vw;
+  background-image: url("./charactersBanner.png");
+  background-position: center;
+  background-size: cover;
+}
+
+.charactersPage .title {
+  height: 40vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  text-shadow: 1px 1px 3px #ed171e;
+}
+
+/* FILTERS SECTION */
+
+.charactersPage .filters {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+}
+
+.charactersPage .filters label {
+  position: relative;
+}
+
+.charactersPage .filters svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 15px;
+  width: 15px;
+  padding: calc(15px / 2);
+}
+
+.charactersPage .filters input {
+  width: 400px;
+  height: 30px;
+  padding-left: 25px;
+}
+
+/* PAGINATION */
+
+.charactersPage .pagination ul {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.charactersPage .pagination li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.charactersPage .pagination .rc-pagination-prev,
+.charactersPage .pagination .rc-pagination-next {
+  font-size: 14px;
+  color: #404040;
+}
+
+.charactersPage .rc-pagination-item {
+  height: 20px;
+  background: none;
+
+  font-family: "Roboto", sans-serif;
+}
+
+.charactersPage .rc-pagination-item-active {
+  font-weight: 900;
+  font-size: 18px;
+}
+
+/* CHARACTER SECTION */
+
+.charactersContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 140px);
+  justify-content: space-between;
+  grid-gap: 40px;
+}
