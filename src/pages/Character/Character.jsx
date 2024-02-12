@@ -24,7 +24,7 @@ const Character = () => {
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
-      items: 1,
+      items: 2,
     },
     mobile: {
       breakpoint: { max: 464, min: 0 },
@@ -66,6 +66,19 @@ const Character = () => {
               alt=""
             />
           </div>
+        </div>
+        <div className="visibleXs">
+          <h2>{data.name} </h2>
+
+          <div>
+            <img
+              src={`${data.thumbnail.path}/${"portrait_uncanny"}.${
+                data.thumbnail.extension
+              }`}
+              alt=""
+            />
+          </div>
+          <p>{data.description} </p>
         </div>
       </div>
       <div className="bottomBackground">

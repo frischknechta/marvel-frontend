@@ -2,6 +2,7 @@
 
 .comicsPage {
   position: relative;
+  margin-top: 60px;
 }
 
 .bannerComics {
@@ -10,7 +11,7 @@
   z-index: -1;
   height: 40vh;
   width: 100vw;
-  background-image: url("../../../public/Comicbook_banner.webp");
+  background-image: url("/Comicbook_banner.webp");
   background-position: center;
   background-size: cover;
 }
@@ -32,6 +33,10 @@
   justify-content: space-between;
   align-items: center;
   height: 60px;
+  position: sticky;
+  top: 59px;
+  z-index: 4;
+  background-color: white;
 }
 
 .comicsPage .filters label {
@@ -93,4 +98,45 @@
   grid-template-columns: repeat(auto-fill, 140px);
   justify-content: space-between;
   grid-gap: 40px;
+  margin-bottom: 40px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1200px) {
+  .comicsPage .filters,
+  .comicsContainer {
+    padding: 0 15px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .bannerComics,
+  .comicsPage .title {
+    height: 25vh;
+  }
+
+  .comicsPage .filters {
+    flex-direction: column;
+    height: 90px;
+    padding: 15px;
+  }
+}
+
+@media (max-width: 600px) {
+  .comicsPage .filters {
+    width: 100vw;
+  }
+
+  .comicsPage .filters label {
+    width: 100%;
+  }
+
+  .comicsPage .filters input {
+    width: 100%;
+  }
+
+  .comicsContainer {
+    justify-content: space-evenly;
+  }
 }

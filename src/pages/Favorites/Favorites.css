@@ -2,6 +2,8 @@
 
 .favoritesPage {
   position: relative;
+  margin-top: 60px;
+  min-height: calc(100vh - 120px);
 }
 
 .bannerFavorites {
@@ -10,7 +12,7 @@
   z-index: -1;
   height: 40vh;
   width: 100vw;
-  background-image: url("../../../public/Fav_banner.jpg");
+  background-image: url("/Fav_banner.jpg");
   background-position: top;
   background-size: cover;
 }
@@ -25,16 +27,30 @@
   text-shadow: 1px 1px 3px #ed171e;
 }
 
+.favoritesContainer {
+  height: max-content;
+}
+
 .favorites {
   display: flex;
   flex-direction: column;
   gap: 20px;
   padding: 20px 0;
+  height: 100%;
 }
 
 .comics,
 .characters {
   display: flex;
   flex-wrap: wrap;
-  gap: 15px;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1200px) {
+  .favorites {
+    padding: 20px;
+  }
 }

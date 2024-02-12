@@ -30,19 +30,33 @@ const Comic = () => {
   return isLoading ? (
     <span>Loading...</span>
   ) : (
-    <div className="wrapper">
-      <div className="comicInfo">
-        <div className="description">
+    <div className="comicPage">
+      <div className="wrapper">
+        <div className="comicInfo">
+          <div className="description">
+            <h2>{data.title} </h2>
+            <p>{data.description} </p>
+          </div>{" "}
+          <div>
+            <img
+              src={`${data.thumbnail.path}/${"portrait_uncanny"}.${
+                data.thumbnail.extension
+              }`}
+              alt=""
+            />
+          </div>
+        </div>
+        <div className="visibleXs">
           <h2>{data.title} </h2>
+          <div>
+            <img
+              src={`${data.thumbnail.path}/${"portrait_uncanny"}.${
+                data.thumbnail.extension
+              }`}
+              alt=""
+            />
+          </div>
           <p>{data.description} </p>
-        </div>{" "}
-        <div>
-          <img
-            src={`${data.thumbnail.path}/${"portrait_uncanny"}.${
-              data.thumbnail.extension
-            }`}
-            alt=""
-          />
         </div>
       </div>
     </div>

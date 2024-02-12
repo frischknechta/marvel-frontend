@@ -1,9 +1,10 @@
 /* CHARACTER PAGE */
 
 .characterPage {
-  height: calc(100vh - 60px);
+  min-height: calc(100vh - 120px);
   display: flex;
   flex-direction: column;
+  margin-top: 60px;
 }
 
 .characterPage > div:first-of-type {
@@ -17,17 +18,25 @@
   padding: 20px 0;
 }
 
+.characterInfo .description h2 {
+  text-align: left;
+}
+
 .characterInfo .description p {
   margin-top: 20px;
   font-size: 24px;
   font-weight: 300;
 }
 
+.characterPage .visibleXs {
+  display: none;
+}
+
 /* BOTTOM SECTION */
 
 .characterPage .bottomBackground {
   background-color: #202020;
-  height: 100%;
+  flex: 1;
 }
 
 .characterPage .bottomContainer {
@@ -44,4 +53,35 @@
 
 .characterPage .appearsIn h3 {
   padding-bottom: 20px;
+  text-align: left;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1200px) {
+  .characterInfo,
+  .characterPage .bottomContainer {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .characterInfo {
+    display: none;
+  }
+
+  .characterPage .visibleXs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    text-align: justify;
+    font-weight: 300;
+    font-size: 18px;
+  }
+
+  .characterPage .appearsIn h3 {
+    text-align: center;
+  }
 }

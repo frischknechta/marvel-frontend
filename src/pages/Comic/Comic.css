@@ -1,5 +1,10 @@
 /* comic PAGE */
 
+.comicPage {
+  min-height: calc(100vh - 120px);
+  margin-top: 60px;
+}
+
 .comicInfo {
   display: flex;
   justify-content: space-between;
@@ -8,8 +13,41 @@
   padding-top: 20px;
 }
 
+.comicInfo .description h2 {
+  text-align: left;
+}
+
 .comicInfo .description p {
   margin-top: 20px;
   font-size: 24px;
   font-weight: 300;
+}
+
+.comicPage .visibleXs {
+  display: none;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1200px) {
+  .comicInfo {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .comicInfo {
+    display: none;
+  }
+
+  .comicPage .visibleXs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    text-align: justify;
+    font-weight: 300;
+    font-size: 18px;
+  }
 }

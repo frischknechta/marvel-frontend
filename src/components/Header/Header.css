@@ -3,6 +3,10 @@
 header {
   height: 60px;
   background-color: #202020;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: 5;
 }
 
 header img {
@@ -15,6 +19,10 @@ header nav {
   justify-content: space-between;
   align-items: center;
   height: 100%;
+}
+
+header .visibleXs {
+  display: none;
 }
 
 header .buttons {
@@ -35,4 +43,57 @@ header button {
   font-size: 18px;
   font-weight: bold;
   cursor: pointer;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1200px) {
+  header .buttons {
+    gap: 10px;
+  }
+}
+
+@media (max-width: 600px) {
+  header .buttons {
+    display: none;
+  }
+
+  header .visibleXs {
+    display: flex;
+    padding-right: 15px;
+    color: white;
+  }
+
+  header .visibleXs svg {
+    height: 30px;
+  }
+
+  header .visible {
+    display: flex;
+    position: relative;
+  }
+
+  header .hidden {
+    display: none;
+  }
+
+  header .menu .buttons {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    z-index: 1;
+    display: flex;
+    gap: 0;
+    flex-direction: column;
+    background-color: #202020;
+    border-top: 2px solid #404040;
+    width: 100vw;
+    height: auto;
+  }
+
+  header .menu .buttons button {
+    border: none;
+    border-bottom: 1px solid #404040;
+    height: 50px;
+  }
 }

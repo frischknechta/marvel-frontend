@@ -13,17 +13,11 @@ import {
   faHeart,
   faHeartCircleXmark,
   faMagnifyingGlass,
-  faCaretLeft,
-  faCaretRight,
+  faBars,
 } from "@fortawesome/free-solid-svg-icons";
 import Favorites from "./pages/Favorites/Favorites";
-library.add(
-  faHeart,
-  faHeartCircleXmark,
-  faMagnifyingGlass,
-  faCaretLeft,
-  faCaretRight
-);
+import Footer from "./components/Footer/Footer";
+library.add(faHeart, faHeartCircleXmark, faMagnifyingGlass, faBars);
 
 function App() {
   return (
@@ -38,6 +32,7 @@ function App() {
           <Route path="/character/:characterId" element={<Character />} />
           <Route path="/favorites" element={<Favorites />} />
         </Routes>
+        <Footer />
       </Router>
     </>
   );

@@ -15,21 +15,45 @@ h1 {
   font-weight: 700;
   font-size: 48px;
   text-transform: uppercase;
+  text-align: center;
 }
 
 h2 {
   font-size: 32px;
   font-weight: 500;
   text-transform: uppercase;
+  text-align: center;
 }
 
 h3 {
   font-size: 24px;
   font-weight: 500;
   text-transform: uppercase;
+  text-align: center;
 }
 
 a {
   text-decoration: none;
   color: inherit;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1000px) {
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 32px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+  h3 {
+    font-size: 20px;
+  }
 }

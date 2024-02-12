@@ -13,9 +13,9 @@ const Favorites = () => {
     <div className="favoritesPage">
       <div className="bannerFavorites"></div>
       <div className="title">
-        <h1>Favorite</h1>
+        <h1>Favorites</h1>
       </div>
-      <div className="wrapper">
+      <div className="wrapper favoritesContainer">
         <div className="favorites">
           <h3>COMICS</h3>
           <div className="comics">
