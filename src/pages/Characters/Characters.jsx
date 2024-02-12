@@ -48,7 +48,7 @@ const Characters = () => {
           <label htmlFor="searchBar">
             <FontAwesomeIcon icon="magnifying-glass" />
             <input
-              type="search"
+              type="text"
               name="searchBar"
               id="searchBar"
               value={search}
