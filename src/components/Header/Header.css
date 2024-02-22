@@ -42,7 +42,23 @@ header button {
   font-family: inherit;
   font-size: 18px;
   font-weight: bold;
-  cursor: pointer;
+}
+
+@media (min-width: 800px) {
+  header button:hover {
+    background-color: #404040;
+    cursor: pointer;
+    animation: headerButtons 0.3s linear both;
+  }
+}
+
+@keyframes headerButtons {
+  0% {
+    transform: scale(1, 1);
+  }
+  100% {
+    transform: scale(1.05, 1);
+  }
 }
 
 /* RESPONSIVE */

@@ -2,39 +2,73 @@ import { Link } from "react-router-dom";
 import "./CharacterCard.css";
 import Cookies from "js-cookie";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import axios from "axios";
 
-const CharacterCard = ({ character, favorites, setFavorites }) => {
-  const handleAddFavorite = () => {
-    const newObj = { ...favorites };
-    newObj.character.push(character._id);
-    Cookies.set("favorites", JSON.stringify(newObj));
-    setFavorites(JSON.parse(Cookies.get("favorites")));
+const CharacterCard = ({ character, favorites, setFavorites, token }) => {
+  const handleAddFavorite = async () => {
+    try {
+      const response = await axios.post(
+        "https://site--marvel-backend--79sf29g9cmjg.code.run/favorites/add",
+        {
+          characterId: character._id,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      console.log(response.data);
+      setFavorites(response.data);
+    } catch (error) {
+      console.log(error.response);
+    }
   };
 
-  const handleRemoveFavorite = () => {
-    const index = favorites.character.indexOf(character._id);
-    favorites.character.splice(index, 1);
-    Cookies.set("favorites", JSON.stringify(favorites));
-    setFavorites(JSON.parse(Cookies.get("favorites")));
+  const handleRemoveFavorite = async () => {
+    try {
+      const response = await axios.post(
+        "https://site--marvel-backend--79sf29g9cmjg.code.run/favorites/delete",
+        {
+          characterId: character._id,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      console.log(response.data);
+      setFavorites(response.data);
+    } catch (error) {
+      console.log(error.response);
+    }
   };
 
   return (
     <>
       <div className="characterCard">
-        <div>
-          {favorites.character.includes(character._id) ? (
-            <button
-              className="characterCardButton"
-              onClick={handleRemoveFavorite}
-            >
-              <FontAwesomeIcon icon="heart-circle-xmark" />
-            </button>
-          ) : (
-            <button className="characterCardButton" onClick={handleAddFavorite}>
-              <FontAwesomeIcon icon="heart" />
-            </button>
-          )}
-        </div>
+        {token ? (
+          <div>
+            {favorites.character.includes(character._id) ? (
+              <button
+                className="characterCardButton"
+                onClick={handleRemoveFavorite}
+              >
+                <FontAwesomeIcon icon="heart-circle-xmark" />
+              </button>
+            ) : (
+              <button
+                className="characterCardButton"
+                onClick={handleAddFavorite}
+              >
+                <FontAwesomeIcon icon="heart" />
+              </button>
+            )}
+          </div>
+        ) : (
+          ""
+        )}
         <Link to={`/character/${character._id}`}>
           <div className="characterCardContainer">
             <img

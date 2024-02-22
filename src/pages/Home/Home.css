@@ -59,9 +59,24 @@
   );
 }
 
-.homePage button:hover {
-  background-color: #b71212;
-  cursor: pointer;
+@media (min-width: 800px) {
+  .homePage button:hover {
+    background-color: #b71212;
+    cursor: pointer;
+    animation: homeButtons 0.6s linear infinite;
+  }
+}
+
+@keyframes homeButtons {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 /* RESPONSIVE */
@@ -69,9 +84,5 @@
 @media (max-width: 600px) {
   .homePage .buttons {
     flex-direction: column;
-  }
-
-  .homePage button:hover {
-    background-color: #ed171e;
   }
 }

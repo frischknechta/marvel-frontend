@@ -6,18 +6,11 @@ import Pagination from "rc-pagination";
 import Cookies from "js-cookie";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const Characters = () => {
+const Characters = ({ token, favorites, setFavorites }) => {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [page, setPage] = useState(1);
-
   const [search, setSearch] = useState("");
-
-  const [favorites, setFavorites] = useState(
-    Cookies.get("favorites")
-      ? JSON.parse(Cookies.get("favorites"))
-      : { comic: [], character: [] }
-  );
 
   useEffect(() => {
     const fetchData = async () => {
@@ -27,6 +20,7 @@ const Characters = () => {
         );
         console.log("CHARACTERS fetchData", response.data);
         setData(response.data);
+
         setIsLoading(false);
       } catch (error) {
         console.log(error.response);
@@ -80,6 +74,7 @@ const Characters = () => {
                 character={character}
                 favorites={favorites}
                 setFavorites={setFavorites}
+                token={token}
               />
             );
           })}

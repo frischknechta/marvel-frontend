@@ -4,12 +4,35 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import ComicPreview from "../../components/ComicPreview/ComicPreview";
 import CharacterPreview from "../../components/CharacterPreview/CharacterPreview";
+import { Navigate } from "react-router-dom";
 
-const Favorites = () => {
-  const favorites = JSON.parse(Cookies.get("favorites"));
-  console.log("FAVORITES>>>>", favorites);
+const Favorites = ({ token }) => {
+  const [favorites, setFavorites] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
 
-  return (
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          "https://site--marvel-backend--79sf29g9cmjg.code.run/favorites",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+        setFavorites(response.data);
+        setIsLoading(false);
+      } catch (error) {
+        console.log(error.response);
+      }
+    };
+    fetchData();
+  }, []);
+
+  return isLoading ? (
+    <span>Loading...</span>
+  ) : token ? (
     <div className="favoritesPage">
       <div className="bannerFavorites"></div>
       <div className="title">
@@ -34,6 +57,8 @@ const Favorites = () => {
         </div>
       </div>
     </div>
+  ) : (
+    <Navigate to="/" />
   );
 };
 

@@ -3,8 +3,9 @@ import "./Header.css";
 import Cookies from "js-cookie";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
+import axios from "axios";
 
-const Header = () => {
+const Header = ({ token, setUser }) => {
   const navigate = useNavigate();
   const [visible, setVisible] = useState(false);
 
@@ -19,25 +20,36 @@ const Header = () => {
           <img src="./MarvelLogo.png" alt="Marvel Logo" />
         </div>
         <div className="buttons">
-          <button
-            onClick={() => {
-              if (Cookies.get("favorites") !== undefined) {
-                const favorite = JSON.parse(Cookies.get("favorites"));
-                console.log(favorite);
-                if (favorite.comic || favorite.character) {
+          {token ? (
+            <button
+              onClick={async () => {
+                const response = await axios.get(
+                  "https://site--marvel-backend--79sf29g9cmjg.code.run/favorites",
+                  {
+                    headers: {
+                      Authorization: `Bearer ${token}`,
+                    },
+                  }
+                );
+                const favorites = response.data;
+                console.log(favorites);
+                if (
+                  favorites.comic.length > 0 ||
+                  favorites.character.length > 0
+                ) {
                   navigate("/favorites");
                 } else {
                   alert(
                     "YOU DON'T HAVE ANY COMIC / CHARACTER IN YOUR FAVORITES"
                   );
                 }
-              } else {
-                alert("YOU DON'T HAVE ANY COMIC / CHARACTER IN YOUR FAVORITES");
-              }
-            }}
-          >
-            FAVORITES
-          </button>
+              }}
+            >
+              FAVORITES
+            </button>
+          ) : (
+            ""
+          )}
           <button
             onClick={() => {
               navigate("/comics");
@@ -52,6 +64,32 @@ const Header = () => {
           >
             CHARACTERS
           </button>
+          {token ? (
+            <button
+              onClick={() => {
+                setUser();
+              }}
+            >
+              LOG OUT
+            </button>
+          ) : (
+            <>
+              <button
+                onClick={() => {
+                  navigate("/signup");
+                }}
+              >
+                SIGN UP
+              </button>
+              <button
+                onClick={() => {
+                  navigate("/login");
+                }}
+              >
+                LOG IN
+              </button>
+            </>
+          )}
         </div>
         <div className="visibleXs">
           <div className="menu">
@@ -64,28 +102,32 @@ const Header = () => {
             </div>
             <div className={visible ? "visble" : "hidden"}>
               <div className="buttons">
-                <button
-                  onClick={() => {
-                    if (Cookies.get("favorites") !== undefined) {
-                      const favorite = JSON.parse(Cookies.get("favorites"));
-                      console.log(favorite);
-                      if (favorite.comic || favorite.character) {
-                        setVisible(false);
-                        navigate("/favorites");
+                {token ? (
+                  <button
+                    onClick={() => {
+                      if (Cookies.get("favorites") !== undefined) {
+                        const favorite = JSON.parse(Cookies.get("favorites"));
+                        console.log(favorite);
+                        if (favorite.comic || favorite.character) {
+                          setVisible(false);
+                          navigate("/favorites");
+                        } else {
+                          alert(
+                            "YOU DON'T HAVE ANY COMIC / CHARACTER IN YOUR FAVORITES"
+                          );
+                        }
                       } else {
                         alert(
                           "YOU DON'T HAVE ANY COMIC / CHARACTER IN YOUR FAVORITES"
                         );
                       }
-                    } else {
-                      alert(
-                        "YOU DON'T HAVE ANY COMIC / CHARACTER IN YOUR FAVORITES"
-                      );
-                    }
-                  }}
-                >
-                  FAVORITES
-                </button>
+                    }}
+                  >
+                    FAVORITES
+                  </button>
+                ) : (
+                  ""
+                )}
                 <button
                   onClick={() => {
                     setVisible(false);
@@ -102,6 +144,35 @@ const Header = () => {
                 >
                   CHARACTERS
                 </button>
+                {token ? (
+                  <button
+                    onClick={() => {
+                      setUser();
+                      setVisible(false);
+                    }}
+                  >
+                    LOG OUT
+                  </button>
+                ) : (
+                  <>
+                    <button
+                      onClick={() => {
+                        setVisible(false);
+                        navigate("/signup");
+                      }}
+                    >
+                      SIGN UP
+                    </button>
+                    <button
+                      onClick={() => {
+                        setVisible(false);
+                        navigate("/login");
+                      }}
+                    >
+                      LOG IN
+                    </button>
+                  </>
+                )}
               </div>
             </div>
           </div>

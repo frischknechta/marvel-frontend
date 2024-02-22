@@ -1,0 +1,69 @@
+/* SIGNUP PAGE */
+
+.signupPage {
+  margin-top: 60px;
+  min-height: calc(100vh - 120px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+.signupPage h1 {
+  margin-top: 30px;
+}
+
+.signupPage form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+.signupPage label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.signupPage input {
+  width: 250px;
+  height: 30px;
+  font-family: inherit;
+}
+
+.signupPage .error {
+  color: #ed171e;
+  text-transform: uppercase;
+}
+
+.signupPage button {
+  background-color: #ed171e;
+  color: white;
+  font-family: inherit;
+  font-size: 24px;
+  font-weight: bold;
+  padding: 15px 20px;
+  border: none;
+  transition: 0.5s;
+  clip-path: polygon(
+    0 20px,
+    20px 0,
+    100% 0,
+    100% calc(100% - 20px),
+    calc(100% - 20px) 100%,
+    0 100%
+  );
+}
+
+@media (min-width: 800px) {
+  .signupPage button:hover {
+    background-color: #b71212;
+    cursor: pointer;
+    transform: scale(1.1);
+  }
+}
