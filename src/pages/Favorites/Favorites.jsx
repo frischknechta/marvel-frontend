@@ -43,14 +43,26 @@ const Favorites = ({ token }) => {
           <h3>COMICS</h3>
           <div className="comics">
             {favorites.comic.map((comicId) => {
-              return <ComicPreview key={comicId} comicId={comicId} />;
+              return (
+                <ComicPreview
+                  key={comicId}
+                  comicId={comicId}
+                  setFavorites={setFavorites}
+                  token={token}
+                />
+              );
             })}
           </div>
           <h3>CHARACTERS</h3>
           <div className="characters">
             {favorites.character.map((characterId) => {
               return (
-                <CharacterPreview key={characterId} characterId={characterId} />
+                <CharacterPreview
+                  key={characterId}
+                  characterId={characterId}
+                  setFavorites={setFavorites}
+                  token={token}
+                />
               );
             })}
           </div>

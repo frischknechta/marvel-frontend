@@ -55,6 +55,7 @@ const Characters = ({ token, favorites, setFavorites }) => {
             <Pagination
               onChange={(page) => {
                 setPage(page);
+                window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
               }}
               current={page}
               total={data.count}

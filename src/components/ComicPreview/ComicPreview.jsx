@@ -2,10 +2,31 @@ import "./ComicPreview.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const ComicPreview = ({ comicId }) => {
+const ComicPreview = ({ comicId, setFavorites, token }) => {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
+
+  const handleRemoveFavorite = async () => {
+    try {
+      const response = await axios.post(
+        "https://site--marvel-backend--79sf29g9cmjg.code.run/favorites/delete",
+        {
+          comicId: comicId,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      console.log("DELETE>>>>>>>>", response.data);
+      setFavorites(response.data);
+    } catch (error) {
+      console.log(error.response);
+    }
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -27,6 +48,11 @@ const ComicPreview = ({ comicId }) => {
     <span>Loading...</span>
   ) : (
     <div className="comicPreview">
+      <div>
+        <button className="comicCardButton" onClick={handleRemoveFavorite}>
+          <FontAwesomeIcon icon="heart-circle-xmark" />
+        </button>
+      </div>
       <Link to={`/comic/${comicId}`}>
         <div className="comicPreviewContainer">
           <img
