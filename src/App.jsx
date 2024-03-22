@@ -78,7 +78,16 @@ function App() {
               />
             }
           />
-          <Route path="/character/:characterId" element={<Character />} />
+          <Route
+            path="/character/:characterId"
+            element={
+              <Character
+                token={token}
+                favorites={favorites}
+                setFavorites={setFavorites}
+              />
+            }
+          />
           <Route path="/favorites" element={<Favorites token={token} />} />
           <Route path="/signup" element={<Signup setUser={setUser} />} />
           <Route path="/login" element={<Login setUser={setUser} />} />

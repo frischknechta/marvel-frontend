@@ -47,6 +47,7 @@ const Favorites = ({ token }) => {
                 <ComicPreview
                   key={comicId}
                   comicId={comicId}
+                  favorites={favorites}
                   setFavorites={setFavorites}
                   token={token}
                 />

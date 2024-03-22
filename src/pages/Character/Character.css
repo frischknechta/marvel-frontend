@@ -40,20 +40,35 @@
 }
 
 .characterPage .bottomContainer {
-  display: flex;
-  flex-direction: column;
   color: white;
   padding: 20px 0;
-}
-
-.characterPage .appearsIn {
-  display: flex;
-  flex-direction: column;
 }
 
 .characterPage .appearsIn h3 {
   padding-bottom: 20px;
   text-align: left;
+}
+
+swiper-container::part(wrapper) {
+  padding-bottom: 30px;
+}
+
+swiper-container::part(button-prev),
+swiper-container::part(button-next) {
+  color: white;
+}
+
+swiper-container::part(pagination) {
+  bottom: 0px;
+}
+
+swiper-container::part(bullet-active) {
+  background-color: white;
+}
+
+swiper-slide {
+  display: flex;
+  justify-content: center;
 }
 
 /* RESPONSIVE */

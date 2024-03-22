@@ -5,6 +5,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 import axios from "axios";
 
+import marvelLogo from "/MarvelLogo.png";
+
 const Header = ({ token, setUser }) => {
   const navigate = useNavigate();
   const [visible, setVisible] = useState(false);
@@ -17,7 +19,7 @@ const Header = ({ token, setUser }) => {
             navigate("/");
           }}
         >
-          <img src="./MarvelLogo.png" alt="Marvel Logo" />
+          <img src={marvelLogo} alt="Marvel Logo" />
         </div>
         <div className="buttons">
           {token ? (

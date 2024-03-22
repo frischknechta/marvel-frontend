@@ -3,34 +3,16 @@ import "./Character.css";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import ComicPreview from "../../components/ComicPreview/ComicPreview";
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
 
-const Character = () => {
+import { register } from "swiper/element/bundle";
+register();
+
+const Character = ({ token, favorites, setFavorites }) => {
   const { characterId } = useParams();
   const navigate = useNavigate();
 
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
-
-  const responsive = {
-    superLargeDesktop: {
-      breakpoint: { max: 4000, min: 3000 },
-      items: 6,
-    },
-    desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 4,
-    },
-    tablet: {
-      breakpoint: { max: 1024, min: 464 },
-      items: 2,
-    },
-    mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 1,
-    },
-  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -86,11 +68,27 @@ const Character = () => {
           <div className="appearsIn">
             <h3>{`${data.name} related comics`}</h3>
             <div className="comicsList">
-              <Carousel responsive={responsive} infinite={true} centerMode>
+              <swiper-container
+                slides-per-view="1"
+                navigation="true"
+                pagination="true"
+                loop="true"
+                autoplay="true"
+                breakpoints='{"500": {"slidesPerView": 2}, "750": {"slidesPerView": 3}, "1000": {"slidesPerView": 4}, "1200": {"slidesPerView": 5}}'
+              >
                 {data.comics.map((comic) => {
-                  return <ComicPreview key={comic} comicId={comic} />;
+                  return (
+                    <swiper-slide key={comic}>
+                      <ComicPreview
+                        comicId={comic}
+                        token={token}
+                        favorites={favorites}
+                        setFavorites={setFavorites}
+                      />
+                    </swiper-slide>
+                  );
                 })}
-              </Carousel>
+              </swiper-container>
             </div>
           </div>
         </div>
